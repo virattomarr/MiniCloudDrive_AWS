@@ -1,7 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>MiniCloudDrive (AWS S3)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #2b6777;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        input[type="file"] {
+            margin-right: 15px;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: none;
+            background-color: #52ab98;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #469a89;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        li {
+            background: white;
+            margin-bottom: 10px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        a {
+            color: #2b6777;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h2>☁️ MiniCloudDrive - AWS S3 Version</h2>
@@ -9,11 +81,16 @@
         <input type="file" name="file" required>
         <button type="submit">Upload to S3</button>
     </form>
-    <h3>Files in S3:</h3>
+
+    <h3>📂 Files in S3:</h3>
     <ul>
         {% for file in files %}
-        <li>{{ file }} - <a href="/download/{{ file }}">Download</a></li>
+        <li>
+            {{ file }}
+            <a href="/download/{{ file }}">Download</a>
+        </li>
         {% endfor %}
     </ul>
 </body>
 </html>
+
